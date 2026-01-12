@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://test.org/esporte.owl"
+         xmlns="http://test.org/esporte.owl#">
+
+<owl:Ontology rdf:about="http://test.org/esporte.owl"/>
+
+<owl:ObjectProperty rdf:about="#tem_recomendacao">
+  <rdfs:domain rdf:resource="#Biotipo"/>
+  <rdfs:range rdf:resource="#Esporte"/>
+</owl:ObjectProperty>
+
+<owl:Class rdf:about="#Biotipo">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Ectomorfo">
+  <rdfs:subClassOf rdf:resource="#Biotipo"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#tem_recomendacao"/>
+      <owl:hasValue rdf:resource="#Maratona"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#tem_recomendacao"/>
+      <owl:hasValue rdf:resource="#Basquete"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Mesomorfo">
+  <rdfs:subClassOf rdf:resource="#Biotipo"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#tem_recomendacao"/>
+      <owl:hasValue rdf:resource="#Crossfit"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#tem_recomendacao"/>
+      <owl:hasValue rdf:resource="#Musculacao"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Endomorfo">
+  <rdfs:subClassOf rdf:resource="#Biotipo"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#tem_recomendacao"/>
+      <owl:hasValue rdf:resource="#Natacao"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#tem_recomendacao"/>
+      <owl:hasValue rdf:resource="#Rugby"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+</owl:Class>
+
+<owl:Class rdf:about="#Objetivo">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Resistencia">
+  <rdfs:subClassOf rdf:resource="#Objetivo"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Forca">
+  <rdfs:subClassOf rdf:resource="#Objetivo"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Agilidade">
+  <rdfs:subClassOf rdf:resource="#Objetivo"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Explosao">
+  <rdfs:subClassOf rdf:resource="#Objetivo"/>
+</owl:Class>
+
+<owl:Class rdf:about="#PerdaPeso">
+  <rdfs:subClassOf rdf:resource="#Objetivo"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Esporte">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:NamedIndividual rdf:about="#Maratona">
+  <rdf:type rdf:resource="#Esporte"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty>
+        <rdf:Description>
+          <owl:inverseOf rdf:resource="#tem_recomendacao"/>
+        </rdf:Description>
+      </owl:onProperty>
+      <owl:someValuesFrom rdf:resource="#Ectomorfo"/>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Musculacao">
+  <rdf:type rdf:resource="#Esporte"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty>
+        <rdf:Description>
+          <owl:inverseOf rdf:resource="#tem_recomendacao"/>
+        </rdf:Description>
+      </owl:onProperty>
+      <owl:someValuesFrom rdf:resource="#Mesomorfo"/>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Natacao">
+  <rdf:type rdf:resource="#Esporte"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty>
+        <rdf:Description>
+          <owl:inverseOf rdf:resource="#tem_recomendacao"/>
+        </rdf:Description>
+      </owl:onProperty>
+      <owl:someValuesFrom rdf:resource="#Endomorfo"/>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Rugby">
+  <rdf:type rdf:resource="#Esporte"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty>
+        <rdf:Description>
+          <owl:inverseOf rdf:resource="#tem_recomendacao"/>
+        </rdf:Description>
+      </owl:onProperty>
+      <owl:someValuesFrom rdf:resource="#Endomorfo"/>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Basquete">
+  <rdf:type rdf:resource="#Esporte"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty>
+        <rdf:Description>
+          <owl:inverseOf rdf:resource="#tem_recomendacao"/>
+        </rdf:Description>
+      </owl:onProperty>
+      <owl:someValuesFrom rdf:resource="#Ectomorfo"/>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#Crossfit">
+  <rdf:type rdf:resource="#Esporte"/>
+  <rdf:type>
+    <owl:Restriction>
+      <owl:onProperty>
+        <rdf:Description>
+          <owl:inverseOf rdf:resource="#tem_recomendacao"/>
+        </rdf:Description>
+      </owl:onProperty>
+      <owl:someValuesFrom rdf:resource="#Mesomorfo"/>
+    </owl:Restriction>
+  </rdf:type>
+</owl:NamedIndividual>
+
+
+</rdf:RDF>
