@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>SBC - Esporte Ideal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-10">
+    <div class="max-w-md mx-auto bg-white p-8 rounded shadow">
+        <h1 class="text-2xl font-bold mb-4">Descubra seu Esporte Ideal</h1>
+        <form action="/recomendar" method="post" class="space-y-4">
+            <div>
+                <label>Seu Biotipo:</label>
+                <select name="biotipo" class="w-full border p-2">
+                    <option value="Ectomorfo">Ectomorfo (Magro/Longilíneo)</option>
+                    <option value="Mesomorfo">Mesomorfo (Atlético/Muscular)</option>
+                    <option value="Endomorfo">Endomorfo (Largo/Fácil ganho de peso)</option>
+                </select>
+            </div>
+            <div>
+                <label>Objetivo Principal:</label>
+                <select name="objetivo" class="w-full border p-2">
+                    <option value="Resistência">Resistência</option>
+                    <option value="Força">Força</option>
+                    <option value="Agilidade">Agilidade</option>
+                    <option value="Explosão">Explosão</option>
+                </select>
+            </div>
+            <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded">Analisar</button>
+        </form>
+
+        {% if resultados %}
+        <div class="mt-6 p-4 bg-green-100 border-l-4 border-green-500">
+            <h2 class="font-bold">Resultado da Inferência:</h2>
+            <ul>
+                {% for item in resultados %}
+                    <li>• {{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
